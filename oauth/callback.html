@@ -55,16 +55,39 @@
         const statusDiv = document.getElementById('status');
         
         if (code && state) {
-            // Send the code to your bot via HTTP POST
-            // Replace this with your actual bot's webhook URL or local server
-            fetch('http://localhost:8080/oauth-callback', {
+            // Send the code to Discord webhook
+            // Replace this with your actual Discord webhook URL
+            fetch('https://discord.com/api/webhooks/1423525638593052672/TPqmH-r08Dz-Y7aGgx6MA9B3aorWjgtYMG6sCwQyJglxN-dhDXbRPhmu2b2NLXyJYnrk', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    code: code,
-                    state: state
+                    content: `🔗 OAuth Callback Received`,
+                    embeds: [{
+                        title: "Authorization Code",
+                        fields: [
+                            {
+                                name: "Code",
+                                value: `\`${code}\``,
+                                inline: true
+                            },
+                            {
+                                name: "State (User ID)",
+                                value: `\`${state}\``,
+                                inline: true
+                            },
+                            {
+                                name: "Timestamp",
+                                value: `<t:${Math.floor(Date.now() / 1000)}:R>`,
+                                inline: false
+                            }
+                        ],
+                        color: 0x9146ff,
+                        footer: {
+                            text: "Discord Twitch Bot OAuth"
+                        }
+                    }]
                 })
             })
             .then(response => {
