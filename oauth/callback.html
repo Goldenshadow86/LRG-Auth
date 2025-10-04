@@ -209,7 +209,7 @@
                         
                         // Redirect to Discord after showing the message
                         setTimeout(() => {
-                            window.location.href = 'https://discord.com/';
+                            window.location.href = 'https://discord.com/channels/760312134621724682/1423927673717129256';
                         }, 3000);
                     }, 2000);
                 } else {
@@ -221,16 +221,17 @@
                 statusDiv.innerHTML = '<div class="status error"><strong>❌ Connection Error</strong><br>Please check your connection and try again.</div>';
                 // Still redirect even if there's an error
                 setTimeout(() => {
-                    window.location.href = 'https://discord.com/';
+                    window.location.href = 'https://discord.com/channels/760312134621724682/1423927673717129256';
                 }, 5000);
             });
         } else {
             statusDiv.innerHTML = '<div class="status error"><strong>❌ No Authorization Code Found</strong><br>Please try the linking process again from Discord.</div>';
             // Redirect to Discord after 5 seconds
             setTimeout(() => {
-                window.location.href = 'https://discord.com/';
+                window.location.href = 'https://discord.com/channels/760312134621724682/1423927673717129256';
             }, 5000);
         }
     </script>
 </body>
 </html>
+
